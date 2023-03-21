@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search Results</title>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    {% if data %}
+      <h2>{{ data["Title"] }} ({{ data["Year"] }})</h2>
+      <p>{{ data["Plot"] }}</p>
+    {% else %}
+      <p>No results found.</p>
+    {% endif %}
+  </body>
+</html>

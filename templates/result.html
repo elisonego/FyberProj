@@ -1,15 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Search Results</title>
-  </head>
-  <body>
+<head>
+    <meta charset="utf-8">
+    <title>Movie Search Results</title>
+</head>
+<body>
     <h1>Search Results</h1>
-    {% if data %}
-      <h2>{{ data["Title"] }} ({{ data["Year"] }})</h2>
-      <p>{{ data["Plot"] }}</p>
+    {% if data.Response == "False" %}
+        <p>No results found.</p>
     {% else %}
-      <p>No results found.</p>
+        <h2>{{ data.Title }}</h2>
+        <img src="{{ data.Poster }}" alt="{{ data.Title }} poster">
+        <ul>
+            <li><strong>Year:</strong> {{ data.Year }}</li>
+            <li><strong>Rated:</strong> {{ data.Rated }}</li>
+            <li><strong>Released:</strong> {{ data.Released }}</li>
+            <li><strong>Runtime:</strong> {{ data.Runtime }}</li>
+            <li><strong>Genre:</strong> {{ data.Genre }}</li>
+            <li><strong>Director:</strong> {{ data.Director }}</li>
+            <li><strong>Writer:</strong> {{ data.Writer }}</li>
+            <li><strong>Actors:</strong> {{ data.Actors }}</li>
+            <li><strong>Plot:</strong> {{ data.Plot }}</li>
+            <li><strong>Language:</strong> {{ data.Language }}</li>
+            <li><strong>Country:</strong> {{ data.Country }}</li>
+            <li><strong>Awards:</strong> {{ data.Awards }}</li>
+            <li><strong>IMDb Rating:</strong> {{ data.imdbRating }}</li>
+            <li><strong>IMDb Votes:</strong> {{ data.imdbVotes }}</li>
+        </ul>
     {% endif %}
-  </body>
+</body>
 </html>
