@@ -41,7 +41,7 @@ def search_movie(title):
         cursor = cnx.cursor()
 
         # Insert the data into the database
-        sql = ("INSERT INTO movies_cache "
+        sql = ("INSERT INTO movie_cache "
                "(title, year, rated, released, data) "
                "VALUES (%s, %s, %s, %s, %s)")
 
