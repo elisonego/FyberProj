@@ -15,7 +15,6 @@ pipeline {
             steps {
                 // Checkout your Git repository
                  sh 'git --version'
-                git -version
                 git 'https://github.com/elisonego/FyberProj.git'
             }
         }
