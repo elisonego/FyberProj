@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS_CREDS = credentials('aws-credentials') // The ID you assigned to your AWS credentials
+        AWS_CREDS = credentials('myawsCred') // The ID you assigned to your AWS credentials
     }
     stages {
         stage('Preparation') {
