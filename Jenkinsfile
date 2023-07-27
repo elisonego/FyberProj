@@ -14,6 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your Git repository
+                echo "line 17"
                 git 'https://github.com/elisonego/FyberProj.git'
             }
         }
