@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        AWS_CREDS = credentials('aws-credentials') // The ID you assigned to your AWS credentials
+    }
     stages {
         stage('Preparation') {
             steps {
@@ -43,9 +46,11 @@ pipeline {
         }
         stage('Upload to S3') {
             steps {
-                sh '''
-                aws s3 cp webpage_status.log s3://elisonegojenkins/webpage_status.log
-                '''
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'myawsCred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    sh '''
+                    aws s3 cp webpage_status.log s3://elisonegojenkins/webpage_status.log
+                    '''
+                }
             }
         }
     }
