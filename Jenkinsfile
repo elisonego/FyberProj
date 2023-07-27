@@ -11,13 +11,13 @@ pipeline {
                 '''
             }
         }
-        stage('Checkout') {
-            steps {
-                // Checkout your Git repository
-                 sh 'git --version'
-                git 'https://github.com/elisonego/FyberProj.git'
-            }
-        }
+stage('Checkout') {
+    steps {
+        sh 'git --version'
+        // Checkout your Git repository
+        git branch: 'main', url: 'https://github.com/elisonego/FyberProj.git'
+    }
+}
         stage('Setup Python') {
             steps {
                 // This will setup Python environment on Jenkins Agent
